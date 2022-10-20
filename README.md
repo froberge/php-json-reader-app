@@ -79,9 +79,7 @@ oc create secret generic app-config --from-file=docs/config.json
 
 ### Add the secrets to the Deployment Config
 ```
-oc set volume dc/php-reader --add  --type=secret \
- -m /opt/ \
---name php-json-reader-vol --secret-name app-config
+oc set volume dc/php-reader --add  --type=secret  -m /opt/config.json --name php-json-vol --secret-name app-config --sub-path config.json
 ```
 
 :warning: You might have to scale down and up for the pod to see the changes. 
