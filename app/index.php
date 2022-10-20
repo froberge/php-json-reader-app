@@ -10,7 +10,8 @@
 
     <b>The config.json file is found at:</b> /opt/
 
-    <h3> File output </h3>
+    <div>
+    <h3> Config file output </h3>
 
     <?php
         // Read the JSON file
@@ -20,7 +21,23 @@
         $json_data = json_decode($json,true);
         $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
         echo "<pre>".$json_string."<pre>";
-
     ?>
+    </div>
+    
+    <div>
+    <h3> Dummy file output </h3>
+
+    <?php
+        // Read the JSON file
+        $json = file_get_contents('/opt/dummy.json');
+
+        // Decode the JSON file
+        $json_data = json_decode($json,true);
+        $json_string = json_encode($json_data, JSON_PRETTY_PRINT);
+        echo "<pre>".$json_string."<pre>";
+    ?>
+    </div>
+
+
     </body>
 </html>
